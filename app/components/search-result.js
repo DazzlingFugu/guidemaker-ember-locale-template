@@ -2,7 +2,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-import sanitizeHtml from 'sanitize-html';
 
 export default Component.extend({
   classNames: ['ds-suggestion'],
@@ -21,9 +20,5 @@ export default Component.extend({
 
   remainingHeadings: computed('result._highlightResult.headings.[]', function() {
     return this.result._highlightResult.headings;
-  }),
-
-  sanatise: function(result) {
-    return sanitizeHtml(result);
-  }
+  })
 });
