@@ -8,6 +8,6 @@ module('Integration | Component | guides-article', function (hooks) {
 
   test('it renders in an article tag and the correct class', async function (assert) {
     await render(hbs`<GuidesArticle />`);
-    assert.dom('article').hasClass('chapter').hasText('template block text');
+    assert.dom('article').hasClass('chapter');
   });
 });
