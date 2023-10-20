@@ -1,0 +1,20 @@
+<footer ...attributes>
+  {{#if this.page.previousPage}}
+    <LinkTo @route="version.show" @model={{this.page.previousPage.url}} class="previous-guide">
+      {{this.page.previousPage.title}}
+    </LinkTo>
+  {{/if}}
+
+  {{#if this.page.nextPage}}
+    <LinkTo @route="version.show" @model={{this.page.nextPage.url}} class="next-guide">
+      {{#if this.page.isLastPage}}
+        {{this.strCurrentChapter}} {{this.page.currentSection.title}}. {{this.strNextChapter}} {{this.page.nextSection.title}} - {{this.page.nextPage.title}}
+      {{else if this.page.nextIsFirstPage}}
+        {{this.page.nextSection.title}} - {{this.page.nextPage.title}}
+      {{else}}
+        {{this.page.nextPage.title}}
+      {{/if}}
+    </LinkTo>
+  {{/if}}
+</footer>
+
