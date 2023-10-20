@@ -1,13 +1,13 @@
 {
-  "name": "guidemaker-default-template",
-  "version": "5.1.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "guidemaker-ember-locale-template",
+  "version": "1.0.0",
+  "description": "A fork of empress/guidemaker-default-template to style the translations of the Ember guides",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "https://github.com/empress/guidemaker-default-template",
+  "repository": "https://github.com/DazzlingFugu/guidemaker-ember-locale-template",
   "license": "MIT",
-  "author": "",
+  "author": "Marine Dunstetter (BlueCutOfficial)",
   "directories": {
     "doc": "doc",
     "test": "tests"

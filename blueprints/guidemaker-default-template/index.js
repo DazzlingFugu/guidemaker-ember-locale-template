@@ -2,7 +2,7 @@
 /* eslint-env node */
 
 module.exports = {
-  description: 'The default blueprint for guidemaker-default-template.',
+  description: 'The default blueprint for guidemaker-ember-locale-template.',
 
   normalizeEntityName() {
     // no-op

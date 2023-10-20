@@ -1,1 +1,1 @@
-export { default } from 'guidemaker-default-template/components/search-input';
+export { default } from 'guidemaker-ember-locale-template/components/search-input';

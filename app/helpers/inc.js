@@ -1,1 +1,1 @@
-export { default, inc } from 'guidemaker-default-template/helpers/inc';
+export { default, inc } from 'guidemaker-ember-locale-template/helpers/inc';
