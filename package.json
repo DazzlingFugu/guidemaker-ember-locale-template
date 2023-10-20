@@ -34,7 +34,7 @@
     "ember-cli-htmlbars": "^5.7.2",
     "ember-cli-sass": "^10.0.1",
     "ember-collapsible-panel": "^5.0.0",
-    "ember-concurrency": "^2.0.2",
+    "ember-concurrency": "^2.3.0",
     "ember-href-to": "^5.0.0",
     "ember-power-select": "^6.0.0",
     "ember-root-url": "^1.0.1",
