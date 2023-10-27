@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Helper | sanitize', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it sanitize not allowed HTML tags', async function (assert) {
+  test('it sanitizes not allowed HTML tags', async function (assert) {
     await render(
       hbs`{{sanitize '<em>Allowed tag</em><img /><script>const myVariable = 0</script>'}}`
     );
