@@ -38,7 +38,8 @@ module.exports = function (environment) {
       },
       // Everything in texts could be handle with an actual intl tool in a later time
       texts: {
-        searchPlaceholder: 'Search results',
+        searchInputPlaceholder: 'Search the guides',
+        searchResultsPlaceholder: 'Search results',
         currentChapter: 'We\'ve finished covering',
         nextChapter: 'Next up:',
       }

@@ -6,7 +6,7 @@
       type='search'
       value={{this.value}}
       oninput={{perform this.search value='target.value'}}
-      placeholder="Search the guides"
+      placeholder={{this.strSearchInputPlaceholder}}
       autocomplete="off"
     >
 
@@ -24,7 +24,7 @@
             <div class="algolia-docsearch-suggestion algolia-docsearch-suggestion__main">
               <div class="algolia-docsearch-suggestion--category-header">
                 <span class="algolia-docsearch-suggestion--category-header-lvl0">
-                  {{this.strSearchPlaceholder}}
+                  {{this.strSearchResultsPlaceholder}}
                 </span>
               </div>
               <div class="algolia-docsearch-suggestion--wrapper"></div>

@@ -25,7 +25,8 @@ export default class SearchInputComponent extends Component {
       this.searchFunction = true;
       this.client = algoliasearch(algoliaId, algoliaKey);
       this.index = this.client.initIndex(indexName);
-      this.strSearchPlaceholder = config.guidemaker.texts.searchPlaceholder;
+      this.strSearchResultsPlaceholder = config.guidemaker.texts.searchResultsPlaceholder;
+      this.strSearchInputPlaceholder = config.guidemaker.texts.searchInputPlaceholder;
     }
   }
 
