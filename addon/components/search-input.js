@@ -1,73 +1,71 @@
-/* eslint-disable ember/no-classic-components, ember/no-classic-classes, ember/require-tagless-components, prettier/prettier, ember/no-actions-hash */
-import { getOwner } from '@ember/application';
-import Component from '@ember/component';
-import { set } from '@ember/object';
-import { later } from '@ember/runloop';
-import algoliasearch from 'algoliasearch';
 import { task, timeout } from 'ember-concurrency';
-
-import layout from '../templates/components/search-input';
+import { action } from '@ember/object';
+import { later } from '@ember/runloop';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import algoliasearch from 'algoliasearch';
+import config from 'ember-get-config';
 
 const SEARCH_DEBOUNCE_PERIOD = 300;
 
-export default Component.extend({
-  layout,
+export default class SearchInputComponent extends Component {
+  config = config;
+  value = '';
 
-  classNames: ['search-input'],
+  @tracked response = undefined;
 
-  _resultTetherConstraints: Object.freeze([
-    {
-      to: 'window',
-      pin: ['left','right']
-    }
-  ]),
+  _focused = false;
+  _resultTetherConstraints = [{ to: 'window', pin: ['left', 'right'] }];
 
-  init() {
-    this._super(...arguments);
-    const config = getOwner(this).resolveRegistration('config:environment');
-
+  constructor() {
+    super(...arguments);
     const { algoliaId, algoliaKey, indexName } = config['algolia'] || {};
 
-    if(algoliaId && algoliaKey && indexName) {
+    if (algoliaId && algoliaKey && indexName) {
       this.searchFunction = true;
       this.client = algoliasearch(algoliaId, algoliaKey);
       this.index = this.client.initIndex(indexName);
+      this.strSearchPlaceholder = config.guidemaker.texts.searchPlaceholder;
     }
-  },
+  }
 
-  search: task(function * (query) {
+  @task({ restartable: true }) *search(query) {
     yield timeout(SEARCH_DEBOUNCE_PERIOD);
 
-    if(!query) {
-      return set(this, 'response', null);
+    if (!query) {
+      this.response = null;
+      return this.response;
     }
 
     const searchObj = {
       hitsPerPage: 15,
     };
 
-    let res = yield this.index.search(query, searchObj);
-
-    return set(this, 'response', res);
-  }).restartable(),
-
-  actions: {
-    oninput(value) {
-      set(this, 'value', value);
-      if(value) {
-        this.search.perform(value);
-      }
-    },
-
-    onfocus() {
-      set(this, '_focused', true);
-    },
-
-    onblur() {
-      later(this, function () {
-        set(this, '_focused', false);
-      }, 200);
-    }
-
+    this.response = yield this.index.search(query, searchObj);
+    return this.response;
   }
-});
+
+  @action
+  oninput(value) {
+    this.value = value;
+    if (value) {
+      this.search.perform(value);
+    }
+  }
+
+  @action
+  onfocus() {
+    this._focused = true;
+  }
+
+  @action
+  onblur() {
+    later(
+      this,
+      function () {
+        this._focused = false;
+      },
+      200
+    );
+  }
+}

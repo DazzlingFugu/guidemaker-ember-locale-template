@@ -1,4 +1,4 @@
-guidemaker-default-template
+guidemaker-ember-locale-template
 ==============================================================================
 
 [Short description of the addon.]
@@ -16,7 +16,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install guidemaker-default-template
+ember install guidemaker-ember-locale-template
 ```
 
 

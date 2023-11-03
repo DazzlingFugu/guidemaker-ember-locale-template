@@ -36,6 +36,12 @@ module.exports = function (environment) {
         tomster: { image: '/images/mascots/tomster.png', name: 'Tomster' },
         zoey: { image: '/images/mascots/zoey.png', name: 'Zoey' },
       },
+      // Everything in texts could be handle with an actual intl tool in a later time
+      texts: {
+        searchPlaceholder: 'Search results',
+        currentChapter: 'We\'ve finished covering',
+        nextChapter: 'Next up:',
+      }
     },
 
     historySupportMiddleware: true

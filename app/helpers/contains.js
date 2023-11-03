@@ -1,2 +1,4 @@
-/* eslint-disable prettier/prettier */
-export { default, contains } from 'guidemaker-default-template/helpers/contains';
+export {
+  default,
+  contains,
+} from 'guidemaker-ember-locale-template/helpers/contains';

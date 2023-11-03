@@ -1,1 +1,1 @@
-export { default } from 'guidemaker-default-template/helpers/sanitize';
+export { default } from 'guidemaker-ember-locale-template/helpers/sanitize';

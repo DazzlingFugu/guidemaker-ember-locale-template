@@ -1,1 +1,1 @@
-export { default } from 'guidemaker-default-template/components/guidemaker-footer';
+export { default } from 'guidemaker-ember-locale-template/components/guidemaker-footer';

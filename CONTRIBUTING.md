@@ -3,7 +3,7 @@
 ## Installation
 
 * `git clone <repository-url>`
-* `cd guidemaker-default-template`
+* `cd guidemaker-ember-locale-template`
 * `npm install`
 
 ## Linting
